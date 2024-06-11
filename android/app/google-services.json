@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "547625483270",
+    "project_id": "jobmingle-91729",
+    "storage_bucket": "jobmingle-91729.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547625483270:android:8942ee98c046ba2d0e1787",
+        "android_client_info": {
+          "package_name": "com.example.job_mingle_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547625483270-6j0bqs152panreju39o5af1627ublao4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAv-M0XQW07eQRNLHBn5y7u0u1DRWKYig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547625483270-6j0bqs152panreju39o5af1627ublao4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "547625483270-r6m5nj16bpjr8ql99vohbj86sdp6tdau.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.jobMingleWeb"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547625483270:android:332ffa444e135d6e0e1787",
+        "android_client_info": {
+          "package_name": "com.example.jobmingle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547625483270-m7mu49mo0kl3n9u6ib0esvfmt966mk28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobmingle",
+            "certificate_hash": "f08c12f51fce04608d90e5f5af7298665948991b"
+          }
+        },
+        {
+          "client_id": "547625483270-6j0bqs152panreju39o5af1627ublao4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAv-M0XQW07eQRNLHBn5y7u0u1DRWKYig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547625483270-6j0bqs152panreju39o5af1627ublao4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "547625483270-r6m5nj16bpjr8ql99vohbj86sdp6tdau.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.jobMingleWeb"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
