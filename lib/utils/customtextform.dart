@@ -75,14 +75,19 @@ class CustomTextFormField extends StatelessWidget {
                 hintStyle: Theme.of(context).textTheme.bodySmall,
                 hintText: hintText,
                 prefixText: prefixtext,
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.black)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      12,
-                    ),
-                    borderSide: BorderSide(color: Colors.blue, width: 3)),
+                enabledBorder:enabledBorder,
+                //  OutlineInputBorder(
+                //     borderRadius: BorderRadius.circular(12),
+                //     borderSide: BorderSide(color: Colors.black)
+                // ),
+              
+                focusedBorder:focusedBorder,
+                //  OutlineInputBorder(
+                //     borderRadius: BorderRadius.circular(
+                //       12,
+                //     ),
+                //    borderSide: BorderSide(color: Colors.blue, width: 3)
+                // ),
                 prefixIcon: prefixIcon,
                 suffixIcon: obscureText
                     ? IconButton(
