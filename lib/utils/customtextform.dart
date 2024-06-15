@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool readOnly;
   final TextEditingController controller;
   final TextStyle? hintstyle;
-
+ final void Function(String)  ? onSubmitted;
   final String hintText;
   final bool obscureText;
   final double? width;
@@ -49,6 +49,7 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     required this.labeltext,
+    this.onSubmitted,
   }) : super(key: key);
 
   bool _obscureText = true;
@@ -104,6 +105,7 @@ class CustomTextFormField extends StatelessWidget {
                       )
                     : suffixIcon,
               ),
+               onFieldSubmitted: onSubmitted,
               obscureText: obscureText && _obscureText,
               validator: validator,
               autovalidateMode: AutovalidateMode.onUserInteraction),

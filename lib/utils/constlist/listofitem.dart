@@ -9,6 +9,14 @@ class ListDropDown {
   
 }
 
+List<ListDropDown> experience=[
+  ListDropDown(1, 'Freshers Only'),
+ListDropDown(2, '0 - 1'),
+ListDropDown(3, '1 - 4'),
+ListDropDown(4, '4 - 8'),
+ListDropDown(5, '8 - 10'),
+
+];
 
 List<ListDropDown> jobtitle = [
  
@@ -113,6 +121,13 @@ ListDropDown(98, 'Mechanical Technician'),
 ListDropDown(99, 'Mobile Developer'),
 ListDropDown(100, 'Operations Coordinator')
 ];
+ 
+ List<ListDropDown> contactwith =[
+   ListDropDown(1, 'HR/Recuiter'),
+   ListDropDown(2, 'Owner/Partner'),
+   ListDropDown(3, 'Manager'),
+  
+ ];
 
 List<ListDropDown> location = [
   ListDropDown(1, 'Mumbai'),

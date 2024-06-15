@@ -1,23 +1,44 @@
 class Companymodel{
-   String  companyemail;
-   String  companypassword;
+   String ? companyemail;
+   String ? companypassword;
    String ?companyuid;
-   String  companyname;
+   String ? companyname;
     String ? address;
    String ?industry;
    int ? numberOfEmployees;
    String ? website;
-   String phone;
+   String ? phone;
+   String ?jobtitle;
+   String ?location;
+   String ?numberofopening;
+   String ? dateofposting;
+   String ?timeofjobentering;
+   String ? jobaddress;
+   String ?experience;
+   String ?contactpersonprofile;
+   String ?contactpersonname;
+   String ?skill;
+
    Companymodel({
-    required this.companyemail,
-    required this.companypassword,
+     this.companyemail,
+     this.companypassword,
     this.companyuid,
-    required this.companyname,
+   this.companyname,
     this.address,
     this.industry,
    this.numberOfEmployees,
     this.website,
-    required this.phone
+    this.phone,
+    this.contactpersonname,
+    this.contactpersonprofile,
+    this.dateofposting,
+    this.experience,
+    this.jobaddress,
+    this.jobtitle,
+    this.location,
+    this.numberofopening,
+    this.skill,
+    this.timeofjobentering
    
    });
 }
