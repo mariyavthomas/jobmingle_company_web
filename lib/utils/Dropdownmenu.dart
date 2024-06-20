@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:job_mingle_web/utils/constlist/listofitem.dart';
-import 'package:job_mingle_web/utils/validator.dart';
 
 Widget Dropdownmenu(
-    double width,
-    TextEditingController menuController,
-    String label,
-    ListDropDown? selectedMenu,
-    List<ListDropDown> list,
-  final FormFieldValidator ? validator
-    )
-     {
-  
+  double width,
+  TextEditingController menuController,
+  String label,
+  ListDropDown  selectedMenu,
+  List<ListDropDown> list,
+  FormFieldValidator validator,
+) {
   return DropdownButtonFormField<ListDropDown>(
-    value: selectedMenu,
+    value:selectedMenu,
     decoration: InputDecoration(
       labelText: label,
       contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -21,9 +18,12 @@ Widget Dropdownmenu(
         borderRadius: BorderRadius.circular(5.0),
       ),
     ),
-    validator:validator,
+    validator: validator,
     onChanged: (ListDropDown? newValue) {
-      selectedMenu = newValue;
+      // Update selectedMenu with the label or identifier from newValue
+      if (newValue != null) {
+        selectedMenu = newValue.label as ListDropDown; // Assuming label is a property of ListDropDown
+      }
     },
     items: list.map<DropdownMenuItem<ListDropDown>>((ListDropDown item) {
       return DropdownMenuItem<ListDropDown>(

@@ -35,7 +35,7 @@ class ButtonCompnyregister extends StatelessWidget {
      
         if(formkey.currentState!.validate()){
  Companymodel comapny = Companymodel(
- 
+               
            companyemail: companyemailController.text,
            companyname: fullcompanynamecontroller.text,
            companypassword: companypasswordcontroller.text,

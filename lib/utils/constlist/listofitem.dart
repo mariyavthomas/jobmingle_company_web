@@ -1,15 +1,14 @@
-import 'package:flutter/material.dart';
 
-class ListDropDown {
-  final int id;
-  final String label;
+class  ListDropDown {
+   int id;
+   String label;
   
 
   ListDropDown(this.id, this.label,);
   
 }
 
-List<ListDropDown> experience=[
+List<ListDropDown?> experience=[
   ListDropDown(1, 'Freshers Only'),
 ListDropDown(2, '0 - 1'),
 ListDropDown(3, '1 - 4'),
@@ -122,14 +121,14 @@ ListDropDown(99, 'Mobile Developer'),
 ListDropDown(100, 'Operations Coordinator')
 ];
  
- List<ListDropDown> contactwith =[
+ List<ListDropDown ?> contactwith =[
    ListDropDown(1, 'HR/Recuiter'),
    ListDropDown(2, 'Owner/Partner'),
    ListDropDown(3, 'Manager'),
   
  ];
 
-List<ListDropDown> location = [
+List<ListDropDown ?> location = [
   ListDropDown(1, 'Mumbai'),
   ListDropDown(2, 'Delhi / NCR'),
   ListDropDown(3, 'Pune'),

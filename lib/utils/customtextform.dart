@@ -49,7 +49,7 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     required this.labeltext,
-    this.onSubmitted,
+    this.onSubmitted, 
   }) : super(key: key);
 
   bool _obscureText = true;

@@ -5,6 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
+import 'package:job_mingle_web/application/getdata/getdatafromcompany_bloc.dart';
+import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
 import 'package:job_mingle_web/firebase_options.dart';
 import 'package:job_mingle_web/utils/routes.dart';
 
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
       providers:[
         BlocProvider(create: (context)=>AuthCompanyBloc()..add(CheckLoginStatusEventCompany())
         ),
+        BlocProvider(create: (context)=>GetdatafromcompanyBloc()),
+        BlocProvider(create: (context)=>PostjobBloc())
       ],
       child:MaterialApp(
          theme: ThemeData(
