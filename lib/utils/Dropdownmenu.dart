@@ -1,35 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:job_mingle_web/utils/constlist/listofitem.dart';
 
-Widget Dropdownmenu(
-  double width,
-  TextEditingController menuController,
-  String label,
-  ListDropDown  selectedMenu,
-  List<ListDropDown> list,
-  FormFieldValidator validator,
-) {
-  return DropdownButtonFormField<ListDropDown>(
-    value:selectedMenu,
-    decoration: InputDecoration(
-      labelText: label,
-      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5.0),
+
+class CustomDropdownMenu extends StatelessWidget {
+  final double width;
+  final String label;
+  final ListDropDown selectedMenu;
+  final List<ListDropDown> list;
+  final Function(ListDropDown?)? onChanged;
+  final String? Function(ListDropDown?)? validator;
+
+  CustomDropdownMenu({
+    required this.width,
+    required this.label,
+    required this.selectedMenu,
+    required this.list,
+    this.onChanged,
+    this.validator,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField<ListDropDown>(
+      value: selectedMenu,
+      items: list.map<DropdownMenuItem<ListDropDown>>((ListDropDown value) {
+        return DropdownMenuItem<ListDropDown>(
+          value: value,
+          child: Text(value.label),
+        );
+      }).toList(),
+      onChanged: onChanged,
+      validator: validator,
+      decoration: InputDecoration(
+        labelText: label,
       ),
-    ),
-    validator: validator,
-    onChanged: (ListDropDown? newValue) {
-      // Update selectedMenu with the label or identifier from newValue
-      if (newValue != null) {
-        selectedMenu = newValue.label as ListDropDown; // Assuming label is a property of ListDropDown
-      }
-    },
-    items: list.map<DropdownMenuItem<ListDropDown>>((ListDropDown item) {
-      return DropdownMenuItem<ListDropDown>(
-        value: item,
-        child: Text(item.label),
-      );
-    }).toList(),
-  );
+    );
+  }
 }

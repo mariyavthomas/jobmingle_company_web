@@ -124,7 +124,8 @@ class Validator {
     }
 
     // Regular expression for date format MM/DD/YYYY
-    String pattern = r'^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$';
+    String pattern = r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$';
+
     RegExp regex = RegExp(pattern);
 
     if (!regex.hasMatch(value)) {
@@ -141,7 +142,9 @@ class Validator {
     }
 
     // Regular expression for time format HH:MM (24-hour)
-    String pattern = r'^([01]?[0-9]|2[0-3]):[0-5][0-9]$';
+    String pattern = r'^([01][0-9]|2[0-3]):[0-5][0-9]$';
+
+
     RegExp regex = RegExp(pattern);
 
     if (!regex.hasMatch(value)) {

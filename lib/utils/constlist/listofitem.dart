@@ -1,27 +1,27 @@
 
 class  ListDropDown {
    int id;
-   String label;
+   dynamic label;
   
 
   ListDropDown(this.id, this.label,);
   
-}
 
-List<ListDropDown?> experience=[
-  ListDropDown(1, 'Freshers Only'),
-ListDropDown(2, '0 - 1'),
-ListDropDown(3, '1 - 4'),
-ListDropDown(4, '4 - 8'),
-ListDropDown(5, '8 - 10'),
+
+List<String> experience=[
+  'Freshers Only'
+'0 - 1',
+ '1 - 4',
+ '4 - 8',
+ '8 - 10',
 
 ];
 
 List<ListDropDown> jobtitle = [
  
-ListDropDown(1, 'Accountant'),
-ListDropDown(2, 'Android Developer'),
-ListDropDown(3, 'Architect'),
+ListDropDown(0, 'Accountant'),
+ListDropDown(1, 'Android Developer'),
+ListDropDown(2, 'Architect'),
 ListDropDown(4, 'Assistant Manager'),
 ListDropDown(5, 'Back Office Executive'),
 ListDropDown(6, 'Business Development Manager'),
@@ -121,17 +121,17 @@ ListDropDown(99, 'Mobile Developer'),
 ListDropDown(100, 'Operations Coordinator')
 ];
  
- List<ListDropDown ?> contactwith =[
+ List<ListDropDown> contactwith =[
    ListDropDown(1, 'HR/Recuiter'),
    ListDropDown(2, 'Owner/Partner'),
    ListDropDown(3, 'Manager'),
   
  ];
 
-List<ListDropDown ?> location = [
-  ListDropDown(1, 'Mumbai'),
-  ListDropDown(2, 'Delhi / NCR'),
-  ListDropDown(3, 'Pune'),
+List<ListDropDown> location = [
+  ListDropDown(0, 'Mumbai'),
+  ListDropDown(1, 'Delhi / NCR'),
+  ListDropDown(2, 'Pune'),
   ListDropDown(4, 'Ahmedabad'),
   ListDropDown(5, 'Bengaluru'),
   ListDropDown(6, 'Chennai'),
@@ -280,3 +280,4 @@ List<ListDropDown ?> location = [
   ListDropDown(149, 'Palakkad'),
   ListDropDown(150, 'Kasaragod'),
 ];
+}

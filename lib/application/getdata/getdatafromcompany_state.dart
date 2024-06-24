@@ -11,7 +11,7 @@ final class GetdatafromcompanyInitial extends GetdatafromcompanyState {}
 
 class Getdatafromcompanyloadingstate extends GetdatafromcompanyState{}
 class Loadeddatafromcompanystate extends GetdatafromcompanyState{
-  Companymodel user;
+  final Companymodel user;
   Loadeddatafromcompanystate({required this.user});
   @override
   List<Object>get props=>[user];
