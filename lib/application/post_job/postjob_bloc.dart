@@ -43,7 +43,11 @@ final JobRepository jobRepository;
         'city':event.job.city,
         'skill':event.job.skill,
         'companyname':event.job.companyname,
-        'contactpersonnumber':event.job.contactpersonnumber
+        'contactpersonnumber':event.job.contactpersonnumber,
+        'salary':event.job.salary,
+        'qualification':event.job.qualification,
+        'jobtime':event.job.jobtime,
+        'interviewtime':event.job.interviewtime
       });
       print(event.job.dateofposting);
       emit(PostJobSuccess());

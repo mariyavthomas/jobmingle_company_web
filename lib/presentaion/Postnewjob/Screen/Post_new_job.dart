@@ -17,10 +17,14 @@ final bool isedit;
 }
 
 class _PostNewJobState extends State<PostNewJob> {
+  final TextEditingController qualificationcontroller=TextEditingController();
+  final TextEditingController interviewtimecontroller= TextEditingController();
+  final TextEditingController jobtimecontroller=TextEditingController();
   final TextEditingController countryCont = TextEditingController();
   final TextEditingController stateCont = TextEditingController();
   final TextEditingController cityCont = TextEditingController();
   final TextEditingController companyuid = TextEditingController();
+
   final TextEditingController menujobtitleController = TextEditingController();
   final TextEditingController menulocationController = TextEditingController();
   final TextEditingController numberopeingscontroller = TextEditingController();
@@ -29,6 +33,7 @@ class _PostNewJobState extends State<PostNewJob> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController jobaddresscontroller = TextEditingController();
   final TextEditingController experiencecontroller = TextEditingController();
+  final TextEditingController salarycontroller =TextEditingController();
   final TextEditingController contactpersonprofilecontroller =
       TextEditingController();
   final TextEditingController companynamecontroller = TextEditingController();
@@ -50,7 +55,7 @@ class _PostNewJobState extends State<PostNewJob> {
   @override
   Widget build(BuildContext context) {
        if(widget.isedit){
-
+        salarycontroller.text=widget.job!.salary;
         jobaddresscontroller.text=widget.job!.jobaddress;
         countryCont.text=widget.job!.country;
         stateCont.text=widget.job!.state;
@@ -108,6 +113,10 @@ class _PostNewJobState extends State<PostNewJob> {
             ),
           ),
           body: Post_Job(
+            qualificationcontroller: qualificationcontroller,
+            interviewtimecontroller: interviewtimecontroller,
+            jobtimecontroller: jobtimecontroller,
+            salarycontroller: salarycontroller,
             isedit: widget.isedit,
              jobidcontroller: jobidcontroller,
               formkey: formkey,

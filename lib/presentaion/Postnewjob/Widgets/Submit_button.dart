@@ -3,17 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
 import 'package:job_mingle_web/domain/job_model.dart';
-import 'package:job_mingle_web/presentaion/Home/home_screen.dart';
+import 'package:job_mingle_web/presentaion/Home/screen/home_screen.dart';
 
 // ignore: must_be_immutable
 class SubmitButton extends StatelessWidget {
    SubmitButton({
     super.key,
     required this.jobidcontroller,
+    required this.interviewtimecontroller,
+    required this.jobtimecontroller,
     required this.formkey,
     required this.countryCont,
     required this.stateCont,
     required this.cityCont,
+    required this.salarycontroller,
     required this.contactnumbercontroller,
     required this.jobaddresscontroller,
     required this.decripationofjobcontroller,
@@ -21,6 +24,7 @@ class SubmitButton extends StatelessWidget {
     required this.menulocationController,
     required this.numberopeingscontroller,
     required this.datecontroller,
+    required this.qualificationcontroller,
     required this.timecontroller,
     required this.experiencecontroller,
     required this.contactpersonprofilecontroller,
@@ -51,6 +55,10 @@ class SubmitButton extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController companynamecontroller;
   final TextEditingController jobidcontroller;
+  final TextEditingController salarycontroller;
+  final TextEditingController jobtimecontroller;
+  final TextEditingController interviewtimecontroller;
+  final TextEditingController qualificationcontroller;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +76,10 @@ class SubmitButton extends StatelessWidget {
          final String ?companyuid=user?.uid;
          
           final job = JobModel(
+            qualification: qualificationcontroller.text ,
+            interviewtime: interviewtimecontroller.text,
+            jobtime:  jobtimecontroller.text,
+            salary:salarycontroller.text ,
             companyuid: companyuid,
             jobid: jobidcontroller.text,
              country:  countryCont.text,
@@ -109,6 +121,10 @@ class SubmitButton extends StatelessWidget {
          final String ?companyuid=user?.uid;
          
           final job = JobModel(
+            jobtime: jobtimecontroller.text,
+            interviewtime: interviewtimecontroller.text,
+            qualification: qualificationcontroller.text,
+            salary: salarycontroller.text,
             companyuid: companyuid,
             jobid: jobidcontroller.text,
              country:  countryCont.text,

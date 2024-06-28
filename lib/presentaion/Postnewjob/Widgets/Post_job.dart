@@ -10,7 +10,10 @@ import 'package:job_mingle_web/presentaion/Postnewjob/Widgets/other_details.dart
 class Post_Job extends StatelessWidget {
   const Post_Job({
     super.key,
+    required this.salarycontroller,
     required this.jobidcontroller,
+    required this.jobtimecontroller,
+    required this.interviewtimecontroller,
     required this.formkey,
     required this.height,
     required this.width,
@@ -32,11 +35,13 @@ class Post_Job extends StatelessWidget {
     required this.jobaddresscontroller,
     required this.menulocationController,
     required this.isedit,
+    required this.qualificationcontroller,
   });
  final bool isedit;
   final GlobalKey<FormState> formkey;
   final double height;
   final double width;
+  final TextEditingController salarycontroller;
   final TextEditingController jobidcontroller;
   final TextEditingController menujobtitleController;
   final TextEditingController numberopeingscontroller;
@@ -55,6 +60,9 @@ class Post_Job extends StatelessWidget {
   final TextEditingController contactpersonnamecontroller;
   final TextEditingController jobaddresscontroller;
   final TextEditingController menulocationController;
+  final TextEditingController jobtimecontroller;
+  final TextEditingController interviewtimecontroller;
+  final TextEditingController qualificationcontroller;
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +93,8 @@ class Post_Job extends StatelessWidget {
             width: width * 0.03,
           ),
           BasicDetails(
+            jobtimecontroller: jobtimecontroller,
+            interviewtimecontroller: interviewtimecontroller,
               height: height,
               width: width,
               menujobtitleController: menujobtitleController,
@@ -132,9 +142,11 @@ class Post_Job extends StatelessWidget {
             width: width * 0.06,
           ),
           OtherDetails(
+            qualificationcontroller:  qualificationcontroller,
               experienceController: experiencecontroller,
               height: height,
               width: width,
+              salarycontroller: salarycontroller,
               dateController: datecontroller,
               decripationOfJobController: decripationofjobcontroller,
               skillController: skillcontroller,
@@ -164,6 +176,10 @@ class Post_Job extends StatelessWidget {
             height: height * 0.05,
           ),
           SubmitButton(
+            qualificationcontroller: qualificationcontroller,
+            jobtimecontroller: jobtimecontroller,
+            interviewtimecontroller: interviewtimecontroller,
+            salarycontroller: salarycontroller,
             isedit: isedit,
               jobidcontroller: jobidcontroller,
               formkey: formkey,

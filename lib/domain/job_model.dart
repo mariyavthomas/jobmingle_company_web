@@ -19,10 +19,18 @@ class JobModel {
   String country;
   String state;
   String city;
+  String salary;
+  String qualification;
+  String jobtime;
+  String interviewtime;
+
 
   JobModel({
     required this.jobid,
-    
+    required this.salary,
+    required this.jobtime,
+   required this.qualification,
+   required this.interviewtime,
     this.joblist,
     required this.country,
     required this.city,
@@ -46,8 +54,11 @@ class JobModel {
   factory JobModel.fromJson(Map<String, dynamic> json) {
     return JobModel(
     //  jobname: json['jobname'] ?? "",
+    interviewtime: json['interviewtime'] ?? "",
+    jobtime: json['jobtime'] ?? "",
+    qualification: json['qualification'] ?? "",
       jobid: json['jobid'] ?? "",
-      
+      salary: json['salary'] ?? "",
       companyemail: json['companyemail'] ?? "",
       companyuid: json['companyuid'] ?? "",
       companyname: json['companyname'] ?? "",
@@ -71,8 +82,10 @@ class JobModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> snapshot = <String, dynamic>{};
     //snapshot['jobname'] = this.jobname;
+    snapshot['interviewtime']=this.interviewtime;
     snapshot['jobid'] = this.jobid;
-  
+    snapshot['salary']= this.salary;
+   snapshot['jobtime']= this.jobtime;
     snapshot['companyemail'] = this.companyemail;
     snapshot['companyuid'] = this.companyuid;
     snapshot['companyname'] = this.companyname;
@@ -90,6 +103,7 @@ class JobModel {
     snapshot['country'] = this.country;
     snapshot['city'] = this.city;
     snapshot['state'] = this.state;
+    snapshot['qualification']=this.qualification;
 
     return snapshot;
   }

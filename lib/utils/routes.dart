@@ -1,10 +1,5 @@
-
-
-
-
-
 import 'package:flutter/material.dart';
-import 'package:job_mingle_web/presentaion/Home/home_screen.dart';
+import 'package:job_mingle_web/presentaion/Home/screen/home_screen.dart';
 import 'package:job_mingle_web/presentaion/LoginScreen/screen/login_screen.dart';
 import 'package:job_mingle_web/presentaion/Register/screen/siginup.dart';
 import 'package:job_mingle_web/presentaion/onboarding/onboarding.dart';

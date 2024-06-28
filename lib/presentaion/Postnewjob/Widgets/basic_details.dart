@@ -7,6 +7,9 @@ class BasicDetails extends StatelessWidget {
   const BasicDetails({
     Key? key,
     required this.height,
+    required this.interviewtimecontroller,
+    required this.jobtimecontroller,
+   
     required this.width,
     required this.menujobtitleController,
     required this.numberopeingscontroller,
@@ -22,7 +25,8 @@ class BasicDetails extends StatelessWidget {
   final double width;
   final TextEditingController menujobtitleController;
   final TextEditingController numberopeingscontroller;
-
+  final TextEditingController  jobtimecontroller;
+  final TextEditingController interviewtimecontroller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -33,7 +37,7 @@ class BasicDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: height * 0.7,
+              height: height * 0.99,
               width: width * 0.5,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -123,6 +127,9 @@ class BasicDetails extends StatelessWidget {
                       height: height * 0.01,
                     ),
                     Text("No Of Openings *"),
+                    SizedBox(
+                      height: height * 0.005,
+                    ),
                     CustomTextFormField(
                       validator: (value) => Validator().numberofopening(value),
                       controller: numberopeingscontroller,
@@ -138,6 +145,52 @@ class BasicDetails extends StatelessWidget {
                       ),
                       width: width * 0.9,
                     ),
+                    
+                    SizedBox(
+                      height: height * 0.01,
+                    ),
+                    Text("Job Time *"),
+                    SizedBox(
+                      height: height * 0.005,
+                    ),
+                    CustomTextFormField(
+                      validator: (value) => Validator().jobtime(value),
+                      controller: jobtimecontroller,
+                      hintText: "09:30 AM - 06:30 PM | Monday to Saturday",
+                      labeltext: "Job Time",
+                      style: TextStyle(fontWeight: FontWeight.w100),
+                      keyboard: TextInputType.number,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1, color: Colors.grey),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1, color: Colors.grey),
+                      ),
+                      width: width * 0.9,
+                    ),
+                      SizedBox(
+                      height: height * 0.01,
+                    ),
+                    Text("Interview Time *"),
+                    SizedBox(
+                      height: height * 0.005,
+                    ),
+                    CustomTextFormField(
+                      validator: (value) => Validator().jobtime(value),
+                      controller: interviewtimecontroller,
+                      hintText: "09:30 AM - 06:30 PM | Monday to Saturday",
+                      labeltext: "Interview Time",
+                      style: TextStyle(fontWeight: FontWeight.w100),
+                      keyboard: TextInputType.number,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1, color: Colors.grey),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1, color: Colors.grey),
+                      ),
+                      width: width * 0.9,
+                    ),
+                  
                     
                   ],
                 ),

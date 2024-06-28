@@ -9,9 +9,11 @@ class OtherDetails extends StatefulWidget {
       required this.experienceController,
       required this.height,
       required this.width,
+      required this.salarycontroller,
       required this.dateController,
       required this.decripationOfJobController,
       required this.skillController,
+      required this.qualificationcontroller,
       required this.timeController})
       : super(key: key);
 
@@ -20,6 +22,8 @@ class OtherDetails extends StatefulWidget {
   final TextEditingController dateController;
   final TextEditingController timeController;
   final TextEditingController skillController;
+  final TextEditingController salarycontroller;
+  final TextEditingController qualificationcontroller;
   final double height;
   final double width;
 
@@ -181,7 +185,33 @@ class _OtherDetailsState extends State<OtherDetails> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             width: 1, color: Colors.grey)),
-                    controller: widget.skillController , hintText: "Skills", labeltext: "Enter the skills")
+                    controller: widget.skillController , hintText: "Skills", labeltext: "Enter the skills"),
+                     SizedBox(
+                    height: widget.height *0.02,
+                  ),
+                  CustomTextFormField(
+                    validator: (value) => Validator().salary(value),
+                     focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: Colors.grey),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 1, color: Colors.grey)),
+                    controller: widget.salarycontroller , hintText: "Salary LPA Rs.1500000 -Rs.20000000", labeltext: "Enter the Salary"),
+                     SizedBox(
+                    height: widget.height *0.02,
+                  ),
+                  CustomTextFormField(
+                    validator: (value) => Validator().qulification(value),
+                     focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: Colors.grey),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 1, color: Colors.grey)),
+                    controller: widget.qualificationcontroller , hintText: "Qualification", labeltext: "Enter qualification")
                 ],
               ),
             ),

@@ -194,4 +194,36 @@ class Validator {
 
     return null;
   }
+String? jobtime(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter Correct Time';
+  }
+
+  // Regular expression to validate the time range and day format
+  final regex = RegExp(
+      r'^\b(0[1-9]|1[0-2]):[0-5][0-9] (AM|PM) - (0[1-6]):[0-5][0-9] (AM|PM) \| (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday) to (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b$');
+
+  if (!regex.hasMatch(value)) {
+    return 'Invalid time range or day format. Please enter a time range in the format 09:30 AM - 06:30 PM | Monday to Saturday.';
+  }
+
+  return null;
+}
+//-------qulification--------//
+String ?qulification(String ?value){
+   if (value == null || value.isEmpty) {
+    return 'Please enter qulification';
+  }
+  return null;
+}
+
+//------skill----------------------//
+String ?salary(String ?value){
+   if (value == null || value.isEmpty) {
+    return 'Please enter salary';
+  }
+  return null;
+}
+
+
 }
