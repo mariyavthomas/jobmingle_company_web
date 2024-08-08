@@ -73,7 +73,7 @@ class _PostNewJobState extends State<PostNewJob> {
         contactnumbercontroller.text=widget.job!.contactpersonnumber;
         decripationofjobcontroller.text=widget.job!.jobdecripation;
         skillcontroller.text=widget.job!.skill;
-        jobidcontroller.text=widget.job!.jobid;
+       // jobidcontroller.text=widget.job!.jobid;
        }
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;

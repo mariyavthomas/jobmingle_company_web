@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:job_mingle_web/domain/company_model.dart';
 import 'package:job_mingle_web/domain/job_model.dart';
 import 'package:job_mingle_web/infrastructure/jobpostRepo.dart';
 import 'package:meta/meta.dart';
@@ -24,8 +23,8 @@ final JobRepository jobRepository;
     emit(PostJobLoadingState());
     print(event.job.dateofposting);
     try {
-      await _firestore.collection('jobss').doc(event.job.jobid).set({
-        'jobid':event.job.jobid,
+      String jobuid=_firestore.collection('jobss').doc().id;
+      await FirebaseFirestore.instance.collection('jobss').doc(jobuid).set({
         'companyuid': event.job.companyuid,
         'jobtitle': event.job.jobtitle,
         'jobdecripation': event.job.jobdecripation,
@@ -47,7 +46,8 @@ final JobRepository jobRepository;
         'salary':event.job.salary,
         'qualification':event.job.qualification,
         'jobtime':event.job.jobtime,
-        'interviewtime':event.job.interviewtime
+        'interviewtime':event.job.interviewtime,
+        'jobuid':jobuid
       });
       print(event.job.dateofposting);
       emit(PostJobSuccess());

@@ -28,6 +28,6 @@ class JobRepository {
   }
 
   Future<void> updatejob(JobModel job) async {
-    await _firestore.collection('jobss').doc(job.jobid).update(job.toJson());
+    await _firestore.collection('jobss').doc(job.jobuid).update(job.toJson());
   }
 }

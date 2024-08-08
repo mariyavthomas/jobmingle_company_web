@@ -1,12 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
 
 import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
 import 'package:job_mingle_web/domain/company_model.dart';
-import 'package:job_mingle_web/presentaion/Home/home_methoda.dart';
-import 'package:job_mingle_web/presentaion/Home/widgets/home_widget.dart';
+import 'package:job_mingle_web/presentaion/Applicants/screen/allapplicant_screen.dart';
+
+import 'package:job_mingle_web/presentaion/Home/widgets/body/cutomcolum.dart';
+
 import 'package:job_mingle_web/presentaion/Postnewjob/Screen/Post_new_job.dart';
 import 'package:job_mingle_web/presentaion/Profile/screen/profile_screen.dart';
 
@@ -54,7 +57,9 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                     SizedBox(
                       width: 15,
                     ),
-                    TextButton(onPressed: () {}, child: Text("PRICING")),
+                    TextButton(onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AllApplicant()));
+                    }, child: Text("Applicants")),
                     SizedBox(
                       width: 15,
                     ),
@@ -91,54 +96,41 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
             body: Container(
                 width: 1700,
                 decoration: BoxDecoration(color: Colors.blue[50]),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Center(
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: "India’s ",
-                          style: TextStyle(fontSize: 29, color: Colors.black),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: "Leading",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            TextSpan(
-                              text: " Employment Platform\n",
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "Find and recruit employees within 48 hours with Job Mingle",
-                      style: TextStyle(fontSize: 25, color: Colors.grey),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Center(
-                      child: Container(
-                        height: 400,
-                        width: 1000,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    "lib/assets/image/undraw_career_progress_ivdb.png"))),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Homeexpanded(),
-                  ],
-                ))));
+                child: CutomColum())));
   }
+
+
+  Future<dynamic> sigout(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Sign Out'),
+          content: Text('Are you sure you want to sign out?'),
+          actions:[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Dismiss the dialog
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Dismiss the dialog
+                final authBloc = BlocProvider.of<AuthCompanyBloc>(context);
+                authBloc.add(SignOutCompany());
+
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/login', (route) => false);
+              },
+              child: Text('Sign Out'),
+            ),
+          ],
+        );
+      },
+    );
+  
+
+}
 }
 

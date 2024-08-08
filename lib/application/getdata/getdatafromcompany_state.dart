@@ -3,7 +3,7 @@ part of 'getdatafromcompany_bloc.dart';
 @immutable
 sealed class GetdatafromcompanyState {
   GetdatafromcompanyState();
-   @override
+  
   List<Object>get props=>[];
 }
 

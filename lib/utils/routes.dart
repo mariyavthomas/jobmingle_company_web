@@ -7,7 +7,7 @@ import 'package:job_mingle_web/presentaion/splash/splash.dart';
 
 class Routers{
   Map<String, Widget Function(BuildContext)>routes={
-   '/': (context) => SplashPage(),
+   '/splash': (context) => SplashPage(),
      '/onboarding':(context) => Onboarding(),
      '/register':(context)=>RegisterPageCompany(),
      '/login':(context)=>LoginPageCompany(),

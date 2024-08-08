@@ -4,11 +4,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
 import 'package:job_mingle_web/application/getdata/getdatafromcompany_bloc.dart';
 import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
+import 'package:job_mingle_web/application/shortlistcan/shortlisted_candidate_bloc.dart';
 import 'package:job_mingle_web/firebase_options.dart';
+import 'package:job_mingle_web/infrastructure/candidateRepo.dart';
 import 'package:job_mingle_web/infrastructure/jobpostRepo.dart';
+import 'package:job_mingle_web/infrastructure/shortlistRepo.dart';
 import 'package:job_mingle_web/utils/routes.dart';
 
 void main()async{
@@ -29,10 +33,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(create: (context)=>GetdatafromcompanyBloc()),
         BlocProvider(create: (context)=>PostjobBloc(JobRepository())),
+        BlocProvider<CandidateBloc>(create: (context)=>CandidateBloc(CandidateRepo())),
+        BlocProvider<ShortlistedCandidateBloc>(create: (context)=>ShortlistedCandidateBloc(ShortListRepo()))
         //BlocProvider(create: (context)=>ProfileBloc(ProfileRepoCompany()))
       ],
       child:MaterialApp(
          theme: ThemeData(
+          
             progressIndicatorTheme:
                 ProgressIndicatorThemeData(color: Colors.blue),
             textTheme: TextTheme(
@@ -49,7 +56,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
         // go to the splashscreen
-        initialRoute: '/',
+        initialRoute: '/splash',
         routes: Routers().routes,
       )
     );

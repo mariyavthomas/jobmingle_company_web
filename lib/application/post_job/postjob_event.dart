@@ -2,7 +2,7 @@ part of 'postjob_bloc.dart';
 
 @immutable
 sealed class PostjobEvent {
-  @override
+  
   List<Object> get props => [];
 }
 

@@ -11,7 +11,6 @@ class CompanyDetails extends StatelessWidget {
     required this.contactpersonnamecontroller,
     required this.emailController,
     required this.jobaddresscontroller,
-    required this.jobid
   });
 
   final double height;
@@ -20,7 +19,7 @@ class CompanyDetails extends StatelessWidget {
   final TextEditingController contactpersonnamecontroller;
   final TextEditingController emailController;
   final TextEditingController jobaddresscontroller;
-  final TextEditingController jobid;
+  //final TextEditingController jobid;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -60,8 +59,7 @@ class CompanyDetails extends StatelessWidget {
                       height: height * 0.01,
                     ),
                     CustomTextFormField(
-                        validator: (value) =>
-                            Validator().nameValidator(value),
+                        validator: (value) => Validator().nameValidator(value),
                         enabledBorder:
                             OutlineInputBorder(borderSide: BorderSide()),
                         focusedBorder: OutlineInputBorder(
@@ -95,8 +93,7 @@ class CompanyDetails extends StatelessWidget {
                             OutlineInputBorder(borderSide: BorderSide()),
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.blue)),
-                        validator: (value) =>
-                            Validator().emailValidator(value),
+                        validator: (value) => Validator().emailValidator(value),
                         labeltext: 'Email ID',
                         keyboard: TextInputType.emailAddress,
                         controller: emailController,
@@ -119,26 +116,20 @@ class CompanyDetails extends StatelessWidget {
                     Container(
                       height: height * 0.08,
                       child: CustomTextFormField(
-                          validator: (value) =>
-                              Validator().jobAddress(value),
+                         // validator: (value) => Validator().jobAddress(value),
                           maxlines: 350,
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide()),
+                          enabledBorder:
+                              OutlineInputBorder(borderSide: BorderSide()),
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.blue)),
                           controller: jobaddresscontroller,
-                          hintText: "",
+                          hintText: "Address",
                           labeltext: ""),
                     ),
                     Text(
                       "Job Address*(Address ONLY shown to registered candidates)Please fill complete address, mention Landmark near your office",
                       style: TextStyle(fontSize: 10, color: Colors.grey),
                     ),
-                    CustomTextFormField( enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide()),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blue)),
-                      controller:jobid , hintText: "Job Id", labeltext: "Enter Job Id")
                   ],
                 ),
               ),
@@ -149,4 +140,3 @@ class CompanyDetails extends StatelessWidget {
     );
   }
 }
-

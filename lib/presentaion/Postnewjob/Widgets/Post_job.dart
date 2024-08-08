@@ -165,7 +165,7 @@ class Post_Job extends StatelessWidget {
             height: height * 0.01,
           ),
           CompanyDetails(
-            jobid: jobidcontroller,
+           
               height: height,
               width: width,
               companynamecontroller: companynamecontroller,
@@ -181,7 +181,7 @@ class Post_Job extends StatelessWidget {
             interviewtimecontroller: interviewtimecontroller,
             salarycontroller: salarycontroller,
             isedit: isedit,
-              jobidcontroller: jobidcontroller,
+              //jobidcontroller: jobidcontroller,
               formkey: formkey,
               countryCont: countryCont,
               stateCont: stateCont,

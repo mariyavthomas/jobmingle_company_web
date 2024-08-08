@@ -12,7 +12,7 @@ class PostJobSuccess extends PostjobState {
 
   PostJobSuccess();
 
-  @override
+  
   List<Object> get props => [];
 }
 
@@ -21,7 +21,7 @@ class PostJobFailure extends PostjobState {
 
   PostJobFailure({required this.error});
 
-  @override
+  
   List<Object> get props => [error];
 
   @override
@@ -30,7 +30,7 @@ class PostJobFailure extends PostjobState {
 class JobLoaded extends PostjobState{
   final List<JobModel> jobs;
   JobLoaded(this.jobs);
-  @override
+  
   List<Object> get props => [jobs];
 
 }
@@ -40,6 +40,6 @@ class PostJobDeleted extends PostjobState{
 class JobUpdated extends PostjobState {
   
   JobUpdated();
-  @override
+
   List<Object> get props => [];
 }

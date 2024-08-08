@@ -1,7 +1,7 @@
 class JobModel {
   
   List<dynamic>? joblist;
-  String  jobid;
+  String ? jobuid;
   String companyemail;
   String? companyuid;
   String companyname;
@@ -26,7 +26,7 @@ class JobModel {
 
 
   JobModel({
-    required this.jobid,
+     this.jobuid,
     required this.salary,
     required this.jobtime,
    required this.qualification,
@@ -57,7 +57,7 @@ class JobModel {
     interviewtime: json['interviewtime'] ?? "",
     jobtime: json['jobtime'] ?? "",
     qualification: json['qualification'] ?? "",
-      jobid: json['jobid'] ?? "",
+      jobuid: json['jobid'] ?? "",
       salary: json['salary'] ?? "",
       companyemail: json['companyemail'] ?? "",
       companyuid: json['companyuid'] ?? "",
@@ -83,7 +83,7 @@ class JobModel {
     final Map<String, dynamic> snapshot = <String, dynamic>{};
     //snapshot['jobname'] = this.jobname;
     snapshot['interviewtime']=this.interviewtime;
-    snapshot['jobid'] = this.jobid;
+    snapshot['jobuid'] = this.jobuid;
     snapshot['salary']= this.salary;
    snapshot['jobtime']= this.jobtime;
     snapshot['companyemail'] = this.companyemail;
