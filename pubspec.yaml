@@ -66,6 +66,7 @@ dependencies:
   animated_text_kit: ^4.2.2
   floating_text: ^0.2.0
   typewritertext: ^3.0.8
+  collapsible_sidebar: ^2.0.7
   
  
 

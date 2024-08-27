@@ -134,7 +134,7 @@ class _OnboardingState extends State<Onboarding>
               width: double.infinity,
               height: double.infinity,
               child: Image.asset(
-                'lib/assets/image/backgrond.jpg',
+                'lib/assets/image/firstpage.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -156,7 +156,7 @@ class _OnboardingState extends State<Onboarding>
                   child: Container(
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/image/onboadingjob3.jpg',
+                      'lib/assets/image/onboading1.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -166,7 +166,7 @@ class _OnboardingState extends State<Onboarding>
                   child: Container(
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/image/onboagingjob1.jpeg',
+                      'lib/assets/image/onboading7.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -176,7 +176,7 @@ class _OnboardingState extends State<Onboarding>
                   child: Container(
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/image/nboading3.jpg',
+                      'lib/assets/image/onpading4.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),

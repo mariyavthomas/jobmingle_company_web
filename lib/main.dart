@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
+import 'package:job_mingle_web/application/ItemSelectionCubit/item_selection_cubit_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
 import 'package:job_mingle_web/application/candidatestatus/candidatestatus_bloc.dart';
 import 'package:job_mingle_web/application/getdata/getdatafromcompany_bloc.dart';
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<ShortlistedCandidateBloc>(create: (context)=>ShortlistedCandidateBloc(ShortListRepo())),
         BlocProvider<RejectedCandidateBloc>(create: (context)=>RejectedCandidateBloc(RejectedRepo())),
         BlocProvider<CandidatestatusBloc>(create: (context)=>CandidatestatusBloc(CandidateStatus())),
-        BlocProvider<UpdatePicBloc>(create: (context)=>UpdatePicBloc(ImageRepo()))
+        BlocProvider<UpdatePicBloc>(create: (context)=>UpdatePicBloc(ImageRepo())),
+        BlocProvider<ItemSelectionCubit>(create: (context)=>ItemSelectionCubit())
         //BlocProvider(create: (context)=>ProfileBloc(ProfileRepoCompany()))
       ],
       child:MaterialApp(
