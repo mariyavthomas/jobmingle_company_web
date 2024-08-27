@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
 import 'package:job_mingle_web/domain/job_model.dart';
-import 'package:job_mingle_web/presentaion/Home/screen/home_screen.dart';
+import 'package:job_mingle_web/presentaion/home/screen/home_screen.dart';
 
 // ignore: must_be_immutable
 class SubmitButton extends StatelessWidget {

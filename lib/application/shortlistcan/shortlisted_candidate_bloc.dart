@@ -15,6 +15,7 @@ class ShortlistedCandidateBloc
       : super(ShortlistedCandidateInitial()) {
     on<AddedtoShortList>(_addedtoShortlist);
     on<ShortListLoadeddata>(_getShortlistapplicatescurrent);
+    on<SearchShortlist>(_search);
   }
 
   FutureOr<void> _addedtoShortlist(
@@ -39,4 +40,21 @@ class ShortlistedCandidateBloc
     emit(ShortlistError(error: e.toString()));
   }
 }
-}
+
+  FutureOr<void> _search(SearchShortlist event, Emitter<ShortlistedCandidateState> emit)async {
+     emit(ShortListLoading());
+    try{
+   if(event.searchtext!.isNotEmpty){
+    List<ShortListCandidatesModel> data= await shortListRepo.searchJobs(event.searchtext!);
+    emit(ShortListCompanyloaded(shortlist1: data));
+
+   }else{
+    List<ShortListCandidatesModel>data= await shortListRepo.getspecificcompanyapplicants();
+    emit(ShortListCompanyloaded(shortlist1: data));
+   }
+  }catch(e){
+      emit(ShortlistError(error: e.toString()));
+  }
+  }
+  }
+

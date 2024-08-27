@@ -1,4 +1,4 @@
-import 'dart:html';
+
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -75,5 +75,29 @@ class ShortListRepo {
     return shortlist;
   }
 }
+
+Future<List<ShortListCandidatesModel>> searchJobs(String searchtxt) async {
+    List<ShortListCandidatesModel> jobList = [];
+    try {
+      final datas =
+          await FirebaseFirestore.instance.collection('shortlist').get();
+
+      // Filter the results locally to support case-insensitive search
+      datas.docs.forEach((element) {
+        var data = element.data() as Map<String, dynamic>;
+        if (data['jobtitle']
+            .toString()
+            .toLowerCase()
+            .contains(searchtxt.toLowerCase())) {
+          jobList.add(ShortListCandidatesModel.fromJson(data));
+        }
+      });
+
+      return jobList;
+    } catch (e) {
+      print('Error: ${e.toString()}');
+      return jobList;
+    }
+  }
 
 }

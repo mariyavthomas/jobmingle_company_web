@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/candidate/candidatelist.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/candidate/search.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/cards/applicants.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/cards/offer_send.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/cards/rejected_card.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/cards/shortlist.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/candidate/candidatelist.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/candidate/search.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/applicants.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/postedjobs.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/rejected_card.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/shortlist.dart';
 
 class CustomColum extends StatelessWidget {
   const CustomColum({
@@ -36,7 +36,7 @@ class CustomColum extends StatelessWidget {
               SizedBox(
                 width: width1 * 0.02,
               ),
-              OfferSend(width1: width1, height2: height2),
+              AllPostedjob(width1: width1, height2: height2),
               SizedBox(
                 width: width1 * 0.02,
               ),
@@ -44,7 +44,9 @@ class CustomColum extends StatelessWidget {
             ],
           ),
         ),
-        Search(width1: width1),
+        Search(height: height2,),
+        Align(alignment: Alignment.centerLeft,
+          child: Text('All Applicants',style:  TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
         ListofCandidates(width1: width1),
         SizedBox(
           height: height2 * 0.03,

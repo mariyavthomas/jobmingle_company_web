@@ -51,7 +51,7 @@ class AuthRepoGoogle {
                 .set(userData);
           }
 
-          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+          Navigator.pushNamedAndRemoveUntil(context, '/payment', (route) => false);
         }
       }
     } catch (e) {

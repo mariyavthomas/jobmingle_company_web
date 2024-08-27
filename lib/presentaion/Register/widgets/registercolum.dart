@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:job_mingle_web/presentaion/Register/fields/companyname.dart';
-import 'package:job_mingle_web/presentaion/Register/fields/emailfielda.dart';
-import 'package:job_mingle_web/presentaion/Register/fields/passwordsfields.dart';
-import 'package:job_mingle_web/presentaion/Register/fields/phonefields.dart';
-import 'package:job_mingle_web/presentaion/Register/widgets/buttonlogin.dart';
-import 'package:job_mingle_web/presentaion/Register/widgets/buttonregister.dart';
+import 'package:job_mingle_web/presentaion/register/fields/companyname.dart';
+import 'package:job_mingle_web/presentaion/register/fields/emailfielda.dart';
+import 'package:job_mingle_web/presentaion/register/fields/passwordsfields.dart';
+import 'package:job_mingle_web/presentaion/register/fields/phonefields.dart';
+import 'package:job_mingle_web/presentaion/register/widgets/buttonlogin.dart';
+import 'package:job_mingle_web/presentaion/register/widgets/buttonregister.dart';
 import 'package:lottie/lottie.dart';
 
 class RegisterCompanyColumn extends StatelessWidget {

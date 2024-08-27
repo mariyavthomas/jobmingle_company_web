@@ -10,3 +10,10 @@ class AddedtoShortList extends ShortlistedCandidateEvent{
   
 }
 class ShortListLoadeddata extends ShortlistedCandidateEvent{}
+
+class SearchShortlist extends ShortlistedCandidateEvent{
+   final String ?searchtext;
+   SearchShortlist({required this.searchtext});
+ 
+  List<Object> get props =>[searchtext!];
+}

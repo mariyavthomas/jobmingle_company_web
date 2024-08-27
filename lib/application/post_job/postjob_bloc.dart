@@ -16,6 +16,7 @@ final JobRepository jobRepository;
     on<FetchJobs>(_onLoadJobs);
     on<DeleteJobPost>(_deletejobpost);
     on<UpdateJobPost>(_updateJob);
+     on<SearchJob>(_searchjob);
     
   }
 
@@ -88,4 +89,21 @@ final JobRepository jobRepository;
       emit(PostJobFailure(error: e.toString()));
     }
   }
-}
+
+  FutureOr<void> _searchjob(SearchJob event, Emitter<PostjobState> emit) async{
+      emit(PostJobLoadingState());
+    try{
+   if(event.searchtext!.isNotEmpty){
+    List<JobModel> data= await jobRepository.searchJobs(event.searchtext!);
+    emit(JobLoaded(data));
+
+   }else{
+    List<JobModel>data=  await jobRepository.getJobsByCompany();
+    emit(JobLoaded( data));
+   }
+  }catch(e){
+      emit(PostJobFailure(error: e.toString()));
+  }
+  }
+  }
+

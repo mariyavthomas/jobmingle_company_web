@@ -13,6 +13,8 @@ class CandidateBloc extends Bloc<CandidateEvent, CandidateState> {
   CandidateBloc(this.candiadaterepo) : super(CandidateInitial()) {
     on<LoadedCandidate>(_getallCandidate);
     on<LoadedCandidateCompany>(_getspecificcompany);
+    on<CandidateShortlist>(_shortlistaddd);
+    on<SearchJobEvent>(_searchjob);
   }
 
   //------getAllCandidateData-------//
@@ -35,8 +37,37 @@ class CandidateBloc extends Bloc<CandidateEvent, CandidateState> {
       LoadedCandidateCompany event, Emitter<CandidateState> emit) async {
     emit(Candidateloading());
     try {
-      final candidate = await candiadaterepo.getspecificcompanyapplicants();
-      emit(CandidateCompanyLoadeddata(candidate: candidate));
+      final candidate =
+          await candiadaterepo.getspecificcompanyapplicantsStream();
+      // print("applicants :${candidate.length}");
+      await for (var stream in candidate) {
+        emit(CandidateCompanyLoadeddata(candidate: stream));
+      }
+
+      print("applicants :${candidate.length}");
     } catch (e) {}
+  }
+
+  FutureOr<void> _shortlistaddd(
+      CandidateShortlist event, Emitter<CandidateState> emit) async {
+    emit(Candidateloading());
+    try {} catch (e) {}
+  }
+
+  FutureOr<void> _searchjob(
+      SearchJobEvent event, Emitter<CandidateState> emit) async {
+    emit(Candidateloading());
+    try {
+      if (event.searchtext!.isNotEmpty) {
+        List<CandidateModel> data =
+            await candiadaterepo.searchJobs(event.searchtext!);
+        emit(CandidateCompanyLoadeddata(candidate: data));
+      } else {
+        List<CandidateModel> data = await candiadaterepo.getallcandidate();
+        emit(CandidateCompanyLoadeddata(candidate: data));
+      }
+    } catch (e) {
+      emit(Candidatefailer(error: e.toString()));
+    }
   }
 }

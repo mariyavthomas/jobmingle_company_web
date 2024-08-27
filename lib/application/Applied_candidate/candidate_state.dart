@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 part of 'candidate_bloc.dart';
 
 @immutable
@@ -31,6 +33,6 @@ class CandidateLoadeddata extends CandidateState {
 class CandidateCompanyLoadeddata extends CandidateState {
   final List<CandidateModel> candidate;
   CandidateCompanyLoadeddata({ required this.candidate});
-  //List<Object> get props => [candidate];
+  List<Object> get props => [candidate];
 }
 

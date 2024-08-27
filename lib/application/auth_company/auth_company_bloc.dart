@@ -40,7 +40,7 @@ class AuthCompanyBloc extends Bloc<AuthCompanyEvent, AuthCompanyState> {
       emit((AuthCompanyLoading()));
       try {
         final userCredential = await _auth.createUserWithEmailAndPassword(
-            email: event.company.companyemail.toString(),
+            email: event.company.email.toString(),
             password: event.company.companypassword.toString());
 
         final user = userCredential.user;
@@ -50,6 +50,8 @@ class AuthCompanyBloc extends Bloc<AuthCompanyEvent, AuthCompanyState> {
             'password': event.company.companypassword,
             'companyname': event.company.companyname,
             'phone': event.company.phone,
+            'image':event.company.image,
+            'payment':'',
             
           'uid': user.uid,
             'CreatedAt': DateTime.now()

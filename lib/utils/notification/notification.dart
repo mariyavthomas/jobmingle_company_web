@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:job_mingle_web/utils/customcolor.dart';
+
 
 class TopNotification {
   static void show(BuildContext context, String message,Color color) {

@@ -6,12 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
+import 'package:job_mingle_web/application/candidatestatus/candidatestatus_bloc.dart';
 import 'package:job_mingle_web/application/getdata/getdatafromcompany_bloc.dart';
 import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
+import 'package:job_mingle_web/application/rejected/rejected_candidate_bloc.dart';
 import 'package:job_mingle_web/application/shortlistcan/shortlisted_candidate_bloc.dart';
+import 'package:job_mingle_web/application/update_pic/update_pic_bloc.dart';
 import 'package:job_mingle_web/firebase_options.dart';
 import 'package:job_mingle_web/infrastructure/candidateRepo.dart';
+import 'package:job_mingle_web/infrastructure/candidatestudes.dart';
 import 'package:job_mingle_web/infrastructure/jobpostRepo.dart';
+import 'package:job_mingle_web/infrastructure/profile_pic.dart';
+import 'package:job_mingle_web/infrastructure/rejectRepo.dart';
 import 'package:job_mingle_web/infrastructure/shortlistRepo.dart';
 import 'package:job_mingle_web/utils/routes.dart';
 
@@ -34,7 +40,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context)=>GetdatafromcompanyBloc()),
         BlocProvider(create: (context)=>PostjobBloc(JobRepository())),
         BlocProvider<CandidateBloc>(create: (context)=>CandidateBloc(CandidateRepo())),
-        BlocProvider<ShortlistedCandidateBloc>(create: (context)=>ShortlistedCandidateBloc(ShortListRepo()))
+        BlocProvider<ShortlistedCandidateBloc>(create: (context)=>ShortlistedCandidateBloc(ShortListRepo())),
+        BlocProvider<RejectedCandidateBloc>(create: (context)=>RejectedCandidateBloc(RejectedRepo())),
+        BlocProvider<CandidatestatusBloc>(create: (context)=>CandidatestatusBloc(CandidateStatus())),
+        BlocProvider<UpdatePicBloc>(create: (context)=>UpdatePicBloc(ImageRepo()))
         //BlocProvider(create: (context)=>ProfileBloc(ProfileRepoCompany()))
       ],
       child:MaterialApp(

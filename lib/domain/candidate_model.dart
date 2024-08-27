@@ -45,6 +45,7 @@ class CandidateModel {
   String usercurrentdeparment;
   String usercurrentindustry;
   String usercurrentjobrole;
+  String ? candidatestatus;
 
   CandidateModel({
     required this.pic,
@@ -52,6 +53,7 @@ class CandidateModel {
     required this.education,
     required this.experience,
     this.appyuid,
+    this.candidatestatus,
     required this.jobid,
     required this.skills,
     required this.userid,
@@ -97,6 +99,7 @@ class CandidateModel {
 
   factory CandidateModel.fromJson(Map<String, dynamic> json) {
     return CandidateModel(
+      candidatestatus: json['candidatestatus'] ?? "",
       pic: json['pic'] ?? "",
       companyuid: json['companyuid'] ?? "",
       education: json['education'] ?? "",
@@ -149,6 +152,7 @@ class CandidateModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['pic'] = this.pic;
+    data['candidatestatus']=this.candidatestatus;
     data['companyuid'] = this.companyuid;
     data['education'] = this.education;
     data['experience'] = this.experience;

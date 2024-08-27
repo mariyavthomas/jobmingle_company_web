@@ -57,7 +57,7 @@ class JobModel {
     interviewtime: json['interviewtime'] ?? "",
     jobtime: json['jobtime'] ?? "",
     qualification: json['qualification'] ?? "",
-      jobuid: json['jobid'] ?? "",
+      jobuid: json['jobuid'] ?? "",
       salary: json['salary'] ?? "",
       companyemail: json['companyemail'] ?? "",
       companyuid: json['companyuid'] ?? "",

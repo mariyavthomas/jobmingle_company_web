@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:job_mingle_web/presentaion/Applicants/screen/allapplicant_screen.dart';
+import 'package:job_mingle_web/presentaion/applicants/screen/allapplicant_screen.dart';
 
-class Applicants extends StatelessWidget {
-  const Applicants({
+class Applicantshome extends StatelessWidget {
+  const Applicantshome({
     super.key,
   });
 

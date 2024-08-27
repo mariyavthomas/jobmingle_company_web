@@ -10,7 +10,7 @@ class Postnewjob extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => PostNewJob(isedit: false,)));

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 part of 'shortlisted_candidate_bloc.dart';
 
 @immutable

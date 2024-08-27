@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
+import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
+import 'package:job_mingle_web/application/rejected/rejected_candidate_bloc.dart';
 import 'package:job_mingle_web/application/shortlistcan/shortlisted_candidate_bloc.dart';
-import 'package:job_mingle_web/presentaion/Applicants/widgets/body/candidate/custom_colum.dart';
-import 'package:job_mingle_web/utils/customcolor.dart';
+import 'package:job_mingle_web/presentaion/applicants/widgets/body/candidate/custom_colum.dart';
+
 
 class AllApplicant extends StatefulWidget {
   const AllApplicant({super.key});
@@ -18,7 +20,8 @@ class _AllApplicantState extends State<AllApplicant> {
     super.initState();
     context.read<CandidateBloc>().add(LoadedCandidateCompany());
     context.read<ShortlistedCandidateBloc>().add(ShortListLoadeddata());
-
+    context.read<RejectedCandidateBloc>().add(GetRejectedCandidate());
+     context.read<PostjobBloc>().add(FetchJobs());
   }
 
   @override

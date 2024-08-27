@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
 import 'package:job_mingle_web/presentaion/onboarding/onboarding.dart';
 
@@ -12,9 +13,19 @@ import 'package:job_mingle_web/presentaion/onboarding/onboarding.dart';
 
 import 'package:lottie/lottie.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
- 
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+   context.read<CandidateBloc>().add(LoadedCandidateCompany());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return MultiBlocListener(
