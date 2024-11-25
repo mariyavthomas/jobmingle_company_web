@@ -16,6 +16,12 @@ class CustomColor{
   static Color bluelight(){
     return Color.fromARGB(197, 141, 162, 231);
   }
+  static Color green(){
+    return Colors.green;
+  }
+  static Color red(){
+    return Colors.red;
+  }
 
   
 }

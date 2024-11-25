@@ -9,6 +9,8 @@ class GoogleButton extends StatelessWidget {
  //AuthRepoGoogle google=AuthRepoGoogle();
   @override
   Widget build(BuildContext context) {
+    double width1 = MediaQuery.of(context).size.width;
+    double height2 = MediaQuery.of(context).size.height;
     return GestureDetector(
         onTap: () {
         // AuthRepoGoogle().signInWithGoogle(context,true);
@@ -16,8 +18,8 @@ class GoogleButton extends StatelessWidget {
         
         },
         child: Container(
-          height: 50,
-          width: 350,
+          height: height2 *0.08,
+          width: width1 *0.35,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color:Colors.black,
@@ -25,24 +27,29 @@ class GoogleButton extends StatelessWidget {
           child: Center(
             child: Row(children: [
               SizedBox(
-                width: 40,
+                width: width1 * 0.04,
               ),
-              SizedBox(
-                width: 20,
-              ),
+              // SizedBox(
+              //   width: width1 *0.02,
+              // ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                CircleAvatar(
-                  minRadius: 20,
-                  backgroundImage:
-                      AssetImage('lib/assets/image/downloadgoogleicon.png'),
+                Center(
+                  child: CircleAvatar(
+                    minRadius:20,
+                    backgroundImage:
+                        AssetImage('lib/assets/image/downloadgoogleicon.png'),
+                  ),
                 ),
                 SizedBox(
-                  width: 10,
+                  width: width1 *0.01,
                 ),
-                Text(
-                  'Sign In with Google',
-                  style: Theme.of(context).textTheme.displayLarge,
-                  
+                Center(
+                  child: Text(
+                    'Sign In with Google',
+                    style: TextStyle(color: Colors.white,fontSize: 12),
+                    //style: Theme.of(conStext).textTheme.displayLarge,
+                    
+                  ),
                 ),
                 //  CircularProgressIndicator()
               ]),

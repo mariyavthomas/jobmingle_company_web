@@ -47,7 +47,7 @@ class _OtherDetailsState extends State<OtherDetails> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: widget.height * 0.9,
+            height: widget.height * 0.99,
             width: widget.width * 0.5,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -91,11 +91,12 @@ class _OtherDetailsState extends State<OtherDetails> {
                     ),
                   ),
                   SizedBox(height: widget.height * 0.01),
-                  SizedBox(height: widget.height * 0.04),
+                  SizedBox(height: widget.height * 0.01),
                   Text("Job Description"),
                   SizedBox(height: widget.height * 0.02),
                   CustomTextFormField(
-                    validator: (value) => Validator().jobAddress(value),
+                    
+                    validator: (value) => Validator().decripationofjob(value),
                     controller: widget.decripationOfJobController,
                     hintText: "Give a short description of the job",
                     labeltext: "Job Description",
@@ -109,9 +110,9 @@ class _OtherDetailsState extends State<OtherDetails> {
                     ),
                     width: widget.width * 0.9,
                   ),
-                  SizedBox(height: widget.height * 0.02),
+                  SizedBox(height: widget.height * 0.01),
                   Text("Job Date *"),
-                  SizedBox(height: widget.height * 0.02),
+                  SizedBox(height: widget.height * 0.01),
                   TextFormField(
                     controller: widget.dateController,
                     onTap: () async {
@@ -139,9 +140,9 @@ class _OtherDetailsState extends State<OtherDetails> {
                       labelText: 'Job Date',
                     ),
                   ),
-                  SizedBox(height: widget.height * 0.02),
+                  SizedBox(height: widget.height * 0.01),
                   Text("Job Time *"),
-                  SizedBox(height: widget.height * 0.02),
+                  SizedBox(height: widget.height * 0.01),
                   TextFormField(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: widget.timeController,
@@ -175,7 +176,7 @@ class _OtherDetailsState extends State<OtherDetails> {
                     ),
                   ),
                   SizedBox(
-                    height: widget.height *0.02,
+                    height: widget.height *0.01,
                   ),
                   CustomTextFormField(
                      focusedBorder: OutlineInputBorder(
@@ -187,7 +188,7 @@ class _OtherDetailsState extends State<OtherDetails> {
                             width: 1, color: Colors.grey)),
                     controller: widget.skillController , hintText: "Skills", labeltext: "Enter the skills"),
                      SizedBox(
-                    height: widget.height *0.02,
+                    height: widget.height *0.01,
                   ),
                   CustomTextFormField(
                     validator: (value) => Validator().salary(value),
@@ -200,7 +201,7 @@ class _OtherDetailsState extends State<OtherDetails> {
                             width: 1, color: Colors.grey)),
                     controller: widget.salarycontroller , hintText: "Salary LPA Rs.1500000 -Rs.20000000", labeltext: "Enter the Salary"),
                      SizedBox(
-                    height: widget.height *0.02,
+                    height: widget.height *0.01,
                   ),
                   CustomTextFormField(
                     validator: (value) => Validator().qulification(value),

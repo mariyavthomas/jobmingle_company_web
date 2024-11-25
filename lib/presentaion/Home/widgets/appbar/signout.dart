@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
 
-Future<dynamic> sigout(BuildContext context) {
+
+class Signout extends StatelessWidget {
+  const Signout({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: () {
+          sigout(context);
+        },
+        child: Text("SIGN  OUT"));
+  }
+  Future<dynamic> sigout(BuildContext context) {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -34,3 +48,5 @@ Future<dynamic> sigout(BuildContext context) {
   
 
 }
+}
+

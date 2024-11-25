@@ -2,7 +2,7 @@ part of 'postjob_bloc.dart';
 
 @immutable
 sealed class PostjobEvent {
-  @override
+  
   List<Object> get props => [];
 }
 
@@ -33,4 +33,11 @@ class UpdateJobPost extends PostjobEvent{
   UpdateJobPost({required this.job});
   @override
   List<Object> get props => [job];
+}
+
+class SearchJob extends PostjobEvent{
+   final String ?searchtext;
+   SearchJob({required this.searchtext});
+   @override
+  List<Object> get props =>[searchtext!];
 }

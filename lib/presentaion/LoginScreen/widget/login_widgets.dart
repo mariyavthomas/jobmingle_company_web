@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
-import 'package:job_mingle_web/presentaion/LoginScreen/button/googlebutton.dart';
-import 'package:job_mingle_web/presentaion/LoginScreen/forgott/forgot_pass.dart';
+import 'package:job_mingle_web/presentaion/loginScreen/button/googlebutton.dart';
+import 'package:job_mingle_web/presentaion/loginScreen/forgott/forgot_pass.dart';
 import 'package:job_mingle_web/utils/customtextform.dart';
 import 'package:job_mingle_web/utils/validator.dart';
 
@@ -23,6 +23,8 @@ class LoginComapny extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width1 = MediaQuery.of(context).size.width;
+    double height2 = MediaQuery.of(context).size.height;
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Container(
         child: Lottie.asset('lib/assets/image/splash.json',
@@ -76,8 +78,8 @@ class LoginComapny extends StatelessWidget {
                     password: _passwordcontroller.text.trim()));
               },
               child: Container(
-                height: 50,
-                width: 350,
+                height: height2 * 0.05,
+                width:width1 * 0.35 ,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Color.fromARGB(200, 75, 110, 225),

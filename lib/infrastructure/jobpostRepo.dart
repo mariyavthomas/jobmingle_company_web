@@ -9,7 +9,7 @@ class JobRepository {
   
   
   
-  Future<List<JobModel?>> getJobsByCompany() async {
+  Future<List<JobModel>> getJobsByCompany() async {
     List<JobModel> joblist = [];
     User? user = FirebaseAuth.instance.currentUser;
     final snapshot = await FirebaseFirestore.instance
@@ -28,6 +28,31 @@ class JobRepository {
   }
 
   Future<void> updatejob(JobModel job) async {
-    await _firestore.collection('jobss').doc(job.jobid).update(job.toJson());
+    await _firestore.collection('jobss').doc(job.jobuid).update(job.toJson());
+  }
+
+
+   Future<List<JobModel>> searchJobs(String searchtxt) async {
+    List<JobModel> jobList = [];
+    try {
+      final datas =
+          await FirebaseFirestore.instance.collection('jobs').get();
+
+      // Filter the results locally to support case-insensitive search
+      datas.docs.forEach((element) {
+        var data = element.data() as Map<String, dynamic>;
+        if (data['jobtitle']
+            .toString()
+            .toLowerCase()
+            .contains(searchtxt.toLowerCase())) {
+          jobList.add(JobModel.fromJson(data));
+        }
+      });
+
+      return jobList;
+    } catch (e) {
+      print('Error: ${e.toString()}');
+      return jobList;
+    }
   }
 }
