@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/applicants.dart';
 import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/postedjobs.dart';
 import 'package:job_mingle_web/presentaion/applicants/widgets/body/cards/rejected_card.dart';
@@ -16,18 +16,10 @@ class CutomColum extends StatefulWidget {
 
 class _CutomColumState extends State<CutomColum> {
   @override
-  void initState() {
-   
-    super.initState();
-    //context.read<Bloc>()
-  }
-  @override
   Widget build(BuildContext context) {
-
     double width1 = MediaQuery.of(context).size.width;
-
-    // ignore: unused_local_variable
     double height2 = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         SizedBox(
@@ -65,34 +57,35 @@ class _CutomColumState extends State<CutomColum> {
             height: height2 * 0.4,
             width: width1 * 1,
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(
-                        "lib/assets/image/undraw_career_progress_ivdb.png"))),
+              image: DecorationImage(
+                image: NetworkImage(
+                    "lib/assets/image/undraw_career_progress_ivdb.png"),
+              ),
+            ),
           ),
         ),
         SizedBox(
           height: height2 * 0.1,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: width1 * 0.02,
+        AnimationLimiter(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: AnimationConfiguration.toStaggeredList(
+              duration: const Duration(seconds: 2),
+              childAnimationBuilder: (widget) => SlideAnimation(
+                horizontalOffset: 50.0,
+                child: FadeInAnimation(
+                  child: widget,
+                ),
+              ),
+              children: [
+                Applicants(width1: width1, height2: height2),
+                ShortListed(width1: width1, height2: height2),
+                AllPostedjob(width1: width1, height2: height2),
+                Rejected(),
+              ],
             ),
-            Applicants(width1: width1, height2: height2),
-            SizedBox(
-              width: width1 * 0.02,
-            ),
-            ShortListed(width1: width1, height2: height2),
-            SizedBox(
-              width: width1 * 0.02,
-            ),
-            AllPostedjob(width1: width1, height2: height2),
-            SizedBox(
-              width: width1 * 0.02,
-            ),
-            Rejected(width1: width1, height2: height2)
-          ],
+          ),
         ),
       ],
     );

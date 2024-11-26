@@ -27,35 +27,39 @@ class AllPostedjob extends StatelessWidget {
             },
             child: Card(
               elevation: 10,
-              child: Container(
-                width: width1 * 0.2,
-                height: height2 * 0.1,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(9))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Stack(children: [
-                    Text(
-                      "All Jobs",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 25),
-                      child: Text(job.length.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 110),
-                      child: CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 242, 144, 39),
-                        child: Icon(
-                          Icons.local_offer,
-                          color: Colors.white,
-                          size: 20,
+              child: Center(
+                child: Container(
+                  width: width1 * 0.1,
+                  height: height2 * 0.2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(9))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Stack(children: [
+                        Text(
+                          "All Jobs",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    )
-                  ]),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 25),
+                          child: Text(job.length.toString(),
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 110),
+                          child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(255, 242, 144, 39),
+                            child: Icon(
+                              Icons.local_offer,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ),
+                        )
+                      ]),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -68,35 +72,39 @@ class AllPostedjob extends StatelessWidget {
           },
           child: Card(
             elevation: 10,
-            child: Container(
-              width: width1 * 0.2,
-              height: height2 * 0.1,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(9))),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Stack(children: [
-                  Text(
-                    "All Jobs",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Text("0",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 110),
-                    child: CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 242, 144, 39),
-                      child: Icon(
-                        Icons.local_offer,
-                        color: Colors.white,
-                        size: 20,
+            child: Center(
+              child: Container(
+                width: width1 * 0.2,
+                height: height2 * 0.2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(9))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Stack(children: [
+                      Text(
+                        "All Jobs",
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  )
-                ]),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text("0",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20, left: 110),
+                        child: CircleAvatar(
+                          backgroundColor: Color.fromARGB(255, 242, 144, 39),
+                          child: Icon(
+                            Icons.local_offer,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                      )
+                    ]),
+                  ),
+                ),
               ),
             ),
           ),

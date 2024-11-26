@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
 import 'package:job_mingle_web/application/ItemSelectionCubit/item_selection_cubit_bloc.dart';
 import 'package:job_mingle_web/application/auth_company/auth_company_bloc.dart';
+import 'package:job_mingle_web/application/bloc/chat_room_bloc.dart';
 import 'package:job_mingle_web/application/candidatestatus/candidatestatus_bloc.dart';
 import 'package:job_mingle_web/application/getdata/getdatafromcompany_bloc.dart';
 import 'package:job_mingle_web/application/post_job/postjob_bloc.dart';
@@ -16,6 +17,7 @@ import 'package:job_mingle_web/application/update_pic/update_pic_bloc.dart';
 import 'package:job_mingle_web/firebase_options.dart';
 import 'package:job_mingle_web/infrastructure/candidateRepo.dart';
 import 'package:job_mingle_web/infrastructure/candidatestudes.dart';
+import 'package:job_mingle_web/infrastructure/chatrepo.dart';
 import 'package:job_mingle_web/infrastructure/jobpostRepo.dart';
 import 'package:job_mingle_web/infrastructure/profile_pic.dart';
 import 'package:job_mingle_web/infrastructure/rejectRepo.dart';
@@ -45,9 +47,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<RejectedCandidateBloc>(create: (context)=>RejectedCandidateBloc(RejectedRepo())),
         BlocProvider<CandidatestatusBloc>(create: (context)=>CandidatestatusBloc(CandidateStatus())),
         BlocProvider<UpdatePicBloc>(create: (context)=>UpdatePicBloc(ImageRepo())),
-        BlocProvider<ItemSelectionCubit>(create: (context)=>ItemSelectionCubit())
+        BlocProvider<ItemSelectionCubit>(create: (context)=>ItemSelectionCubit()),
         //BlocProvider(create: (context)=>ProfileBloc(ProfileRepoCompany()))
+         BlocProvider<ChatRoomBloc>(create: (context)=>ChatRoomBloc(MessageRepo()))
       ],
+
+
       child:MaterialApp(
          theme: ThemeData(
           

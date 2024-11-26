@@ -7,15 +7,17 @@ import 'package:job_mingle_web/presentaion/rejected_candidate/screen/rejected.da
 class Rejected extends StatelessWidget {
   const Rejected({
     super.key,
-    required this.width1,
-    required this.height2,
+   
   });
 
-  final double width1;
-  final double height2;
+  
 
   @override
   Widget build(BuildContext context) {
+      // ignore: unused_local_variable
+    double width1 = MediaQuery.of(context).size.width;
+    // ignore: unused_local_variable
+    double height2 = MediaQuery.of(context).size.height;
     return BlocBuilder<RejectedCandidateBloc, RejectedCandidateState>(
       builder: (context, state) {
         if (state is Rejectedcandidateloaded) {
@@ -29,35 +31,40 @@ class Rejected extends StatelessWidget {
             },
             child: Card(
               elevation: 10,
-              child: Container(
-                width: width1 * 0.2,
-                height: height2 * 0.1,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(9))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Stack(children: [
-                    Text(
-                      "Rejected",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 25),
-                      child: Text(rejectedcandidatelist.length.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 110),
-                      child: CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 225, 120, 120),
-                        child: Icon(
-                          Icons.error,
-                          color: Colors.white,
-                          size: 20,
+
+              child: Center(
+                child: Container(
+                  width: width1 * 0.1,
+                  height: height2 * 0.2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(9))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Stack(children: [
+                        Text(
+                          "Rejected",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    )
-                  ]),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 25),
+                          child: Text(rejectedcandidatelist.length.toString(),
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 110),
+                          child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(255, 225, 120, 120),
+                            child: Icon(
+                              Icons.error,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ),
+                        )
+                      ]),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -69,40 +76,44 @@ class Rejected extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => RejectedList(
-                          width1: width1,
+                         
                         )));
           },
           child: Card(
             elevation: 10,
-            child: Container(
-              width: width1 * 0.2,
-              height: height2 * 0.1,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(9))),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Stack(children: [
-                  Text(
-                    "Rejected",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Text("0",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 110),
-                    child: CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 225, 120, 120),
-                      child: Icon(
-                        Icons.error,
-                        color: Colors.white,
-                        size: 20,
+            child: Center(
+              child: Container(
+                width: width1 * 0.1,
+                height: height2 * 0.2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(9))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Stack(children: [
+                      Text(
+                        "Rejected",
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  )
-                ]),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text("0",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20, left: 110),
+                        child: CircleAvatar(
+                          backgroundColor: Color.fromARGB(255, 225, 120, 120),
+                          child: Icon(
+                            Icons.error,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                      )
+                    ]),
+                  ),
+                ),
               ),
             ),
           ),

@@ -18,41 +18,49 @@ class CustomColum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: width1 * 0.02,
-              ),
-              Applicants(width1: width1, height2: height2),
-              SizedBox(
-                width: width1 * 0.02,
-              ),
-              ShortListed(width1: width1, height2: height2),
-              SizedBox(
-                width: width1 * 0.02,
-              ),
-              AllPostedjob(width1: width1, height2: height2),
-              SizedBox(
-                width: width1 * 0.02,
-              ),
-              Rejected(width1: width1, height2: height2)
-            ],
+    return Container(
+      decoration: BoxDecoration(color:  Colors.blue[50]),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: width1 * 0.02,
+                ),
+                Applicants(width1: width1, height2: height2),
+                SizedBox(
+                  width: width1 * 0.02,
+                ),
+                ShortListed(width1: width1, height2: height2),
+                SizedBox(
+                  width: width1 * 0.02,
+                ),
+                AllPostedjob(width1: width1, height2: height2),
+                SizedBox(
+                  width: width1 * 0.02,
+                ),
+                Rejected()
+              ],
+            ),
           ),
-        ),
-        Search(height: height2,),
-        Align(alignment: Alignment.centerLeft,
-          child: Text('All Applicants',style:  TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
-        ListofCandidates(width1: width1),
-        SizedBox(
-          height: height2 * 0.03,
-        )
-      ],
+          Search(
+            height: height2,
+          ),
+          Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'All Applicants',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              )),
+          ListofCandidates(width1: width1),
+          SizedBox(
+            height: height2 * 0.03,
+          )
+        ],
+      ),
     );
   }
 }
-

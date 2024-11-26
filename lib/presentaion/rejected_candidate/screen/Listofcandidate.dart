@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
 import 'package:job_mingle_web/application/rejected/rejected_candidate_bloc.dart';
-import 'package:job_mingle_web/domain/shortlist_candidate.dart';
-import 'package:job_mingle_web/presentaion/shortlisted/widgets/showdetail.dart';
+import 'package:job_mingle_web/domain/rejected_candidate.dart';
+import 'package:job_mingle_web/presentaion/rejected_candidate/wigets/reject_details.dart';
+import 'package:lottie/lottie.dart';
+
 
 
 class RejectedList extends StatefulWidget {
   const RejectedList({
     super.key,
-    required this.width1,
+    
   });
 
-  final double width1;
+  
 
   @override
   State<RejectedList> createState() => _RejectedListState();
@@ -38,6 +40,12 @@ class _RejectedListState extends State<RejectedList> {
         } else if (state is Rejectedcandidateloaded) {
           final candidateshortlist = state.rejected;
           print(candidateshortlist.length);
+          if(candidateshortlist.isEmpty){
+            return Center(
+              child: Lottie.asset('lib/assets/image/noting.json',
+                  height: 100, width: 100),
+            );
+          }
           print("djjjjjjjjjjj");
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -48,7 +56,7 @@ class _RejectedListState extends State<RejectedList> {
                   borderRadius: BorderRadius.circular(10.0),
                  
                 ),
-                width: widget.width1 * 0.99,
+                width: width1 * 0.99,
                 child: DataTable(
                   columnSpacing: 10,
                   columns: [
@@ -86,7 +94,8 @@ class _RejectedListState extends State<RejectedList> {
                       
                         DataCell(IconButton(
                           onPressed: () {
-                            showCandidateDetails(context, candidate as ShortListCandidatesModel);
+                            // ignore: unnecessary_cast
+                            showCandidateDetailsRejected(context, candidate as RejectedCandidateModel);
                           },
                           icon: Icon(Icons.arrow_forward),
                         )),

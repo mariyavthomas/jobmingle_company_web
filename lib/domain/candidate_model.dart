@@ -1,3 +1,5 @@
+import 'package:flutter/src/material/data_table.dart';
+
 class CandidateModel {
   String companyuid;
   String jobid;
@@ -200,4 +202,6 @@ class CandidateModel {
     data['usercurrentjobrole'] = this.usercurrentjobrole;
     return data;
   }
+
+  map(DataRow Function(dynamic candidate) param0) {}
 }

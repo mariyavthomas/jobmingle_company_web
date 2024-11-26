@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/Applied_candidate/candidate_bloc.dart';
 import 'package:job_mingle_web/application/shortlistcan/shortlisted_candidate_bloc.dart';
 import 'package:job_mingle_web/presentaion/shortlisted/widgets/showdetail.dart';
+import 'package:lottie/lottie.dart';
 
 class ListShortList extends StatefulWidget {
   const ListShortList({
@@ -31,6 +32,12 @@ class _ListShortListState extends State<ListShortList> {
         } else if (state is ShortListCompanyloaded) {
           final candidateshortlist = state.shortlist1;
           print(candidateshortlist.length);
+          if (candidateshortlist.isEmpty) {
+            return Center(
+              child: Lottie.asset('lib/assets/image/noting.json',
+                  height: 100, width: 100),
+            );
+          }
           print("djjjjjjjjjjj");
           return Padding(
             padding: const EdgeInsets.all(8.0),

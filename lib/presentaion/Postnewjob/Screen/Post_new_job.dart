@@ -77,6 +77,7 @@ class _PostNewJobState extends State<PostNewJob> {
     return BlocBuilder<PostjobBloc, PostjobState>(
       builder: (context, state) {
         return Scaffold(
+          backgroundColor:  Colors.blue[50],
           appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 10,
@@ -85,11 +86,14 @@ class _PostNewJobState extends State<PostNewJob> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   ElevatedButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => PostNewJob(isedit: false,)));
+                      onPressed: () async{
+                        final Uri appurl=Uri.parse('https://www.amazon.in/flutter-developer-Job-Miingle/dp/B0DFCBB2BV/ref=sr_1_fkmr0_1?dib=eyJ2IjoiMSJ9.fz9DcrJXXexFBvEKaSzCHpENC9KJuq7WTV-dkwfTmJjGjHj071QN20LucGBJIEps.bnEvXhS8WUbgKfgShed0JSGlltADiFqOfF6BwOsXyE8&dib_tag=se&keywords=Job+Miingle&qid=1724905950&sr=8-1-fkmr0 ');
+                         if (await canLaunchUrl(appurl)) {
+                          await launchUrl(appurl,
+                              mode: LaunchMode.externalApplication);
+                        } else {
+                          throw 'Could not launch $appurl';
+                        }
                       },
                       child: Text("FIND NEW JOB")),
                   SizedBox(width: width * 0.02),

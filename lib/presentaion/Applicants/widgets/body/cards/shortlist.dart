@@ -30,13 +30,55 @@ class ShortListed extends StatelessWidget {
             },
             child: Card(
               elevation: 10,
-              child: Container(
-                width: width1 * 0.2,
-                height: height2 * 0.1,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(9))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Container(
+                  width: width1 * 0.1,
+                  height: height2 * 0.2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(9))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Stack(children: [
+                        Text(
+                          "ShortList",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 25),
+                          child: Text(shortlistedcandidates.length.toString(),
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 110),
+                          child: CircleAvatar(
+                            maxRadius: 25,
+                            backgroundColor: Color.fromARGB(255, 182, 125, 215),
+                            child: Icon(
+                              Icons.meeting_room,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+        return Card(
+          elevation: 10,
+          child: Center(
+            child: Container(
+              width: width1 * 0.1,
+              height: height2 * 0.2,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(9))),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
                   child: Stack(children: [
                     Text(
                       "ShortList",
@@ -44,7 +86,7 @@ class ShortListed extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 25),
-                      child: Text(shortlistedcandidates.length.toString(),
+                      child: Text("0",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                     ),
                     Padding(
@@ -61,40 +103,6 @@ class ShortListed extends StatelessWidget {
                   ]),
                 ),
               ),
-            ),
-          );
-        }
-        return Card(
-          elevation: 10,
-          child: Container(
-            width: width1 * 0.2,
-            height: height2 * 0.1,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(9))),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Stack(children: [
-                Text(
-                  "Schedule Meeting",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 25),
-                  child: Text("100",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 110),
-                  child: CircleAvatar(
-                    maxRadius: 25,
-                    backgroundColor: Color.fromARGB(255, 182, 125, 215),
-                    child: Icon(
-                      Icons.meeting_room,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ]),
             ),
           ),
         );

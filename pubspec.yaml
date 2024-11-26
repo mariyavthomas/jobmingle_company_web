@@ -67,6 +67,11 @@ dependencies:
   floating_text: ^0.2.0
   typewritertext: ^3.0.8
   collapsible_sidebar: ^2.0.7
+  sidebarx: ^0.17.1
+  flutter_staggered_animations: ^1.1.1
+  skeleton_animation: ^0.1.4
+  skeleton_text: ^3.0.1
+  google_fonts: ^6.2.0
   
  
 
@@ -81,6 +86,16 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.13.1
+fonts:
+  - family: AbhayaLibre
+    fonts:
+      - asset: fonts/AbhayaLibre-Regular.ttf
+  - family: BowlbyOne
+    fonts:
+      - asset: fonts/BowlbyOne-Regular.ttf
+  - family: Roboto
+    fonts:
+      - asset: fonts/Roboto-Regular.ttf
 
 flutter_icons:
     android: true

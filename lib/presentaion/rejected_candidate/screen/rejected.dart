@@ -8,6 +8,7 @@ class RejectedCandidates extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     // ignore: unused_local_variable
      double width1 = MediaQuery.of(context).size.width;
     // ignore: unused_local_variable
     double height2 = MediaQuery.of(context).size.height;
@@ -23,7 +24,7 @@ class RejectedCandidates extends StatelessWidget {
             child: Align(alignment: Alignment.centerLeft,
             child: Text('All Rejected Candidates',style:  TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
           ),
-          RejectedList(width1: width1,)
+          RejectedList()
 
         ],
        ),

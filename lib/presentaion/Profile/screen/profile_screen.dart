@@ -33,6 +33,7 @@ class _ProfilemainState extends State<Profilemain> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.blue[50],
         body: BlocListener<GetdatafromcompanyBloc, GetdatafromcompanyState>(
           listener: (context, state) {
             if (state is UpdateCompanySuccess) {

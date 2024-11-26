@@ -160,9 +160,14 @@ class ProfileBody extends StatelessWidget {
                         ),
                         SizedBox(height: height * 0.01),
                         Text(state.user.summery!),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Update"),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Update"),
+                          ),
                         ),
                       ],
                     ),

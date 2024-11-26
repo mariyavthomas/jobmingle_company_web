@@ -110,7 +110,8 @@ class _OnboardingState extends State<Onboarding>
               Navigator.pushNamed(context, '/login');
             },
             style: TextButton.styleFrom(
-              primary: Colors.black,
+              // ignore: deprecated_member_use
+              iconColor: Colors.black,
             ),
             child: Text('Login'),
           ),
@@ -120,7 +121,7 @@ class _OnboardingState extends State<Onboarding>
               Navigator.pushNamed(context, '/register');
             },
             style: TextButton.styleFrom(
-              primary: Colors.black,
+              iconColor: Colors.black,
             ),
             child: Text('Register'),
           ),
@@ -156,7 +157,7 @@ class _OnboardingState extends State<Onboarding>
                   child: Container(
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/image/onboading1.jpg',
+                      'lib/assets/image/onboading7.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -166,7 +167,7 @@ class _OnboardingState extends State<Onboarding>
                   child: Container(
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/image/onboading7.jpg',
+                      'lib/assets/image/onboading2.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -176,7 +177,7 @@ class _OnboardingState extends State<Onboarding>
                   child: Container(
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/image/onpading4.jpg',
+                      'lib/assets/image/image3.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),

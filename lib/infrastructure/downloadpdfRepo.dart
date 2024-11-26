@@ -1,14 +1,30 @@
- import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_mingle_web/application/rejected/rejected_candidate_bloc.dart';
 import 'package:job_mingle_web/application/shortlistcan/shortlisted_candidate_bloc.dart';
+import 'package:job_mingle_web/domain/candidate_model.dart';
 import 'package:job_mingle_web/domain/rejected_candidate.dart';
+import 'dart:html' as html;
+
 import 'package:job_mingle_web/domain/shortlist_candidate.dart';
 import 'package:job_mingle_web/utils/customcolor.dart';
 import 'package:job_mingle_web/utils/notification/notification.dart';
 
-void showCandidateDetailsRejected(BuildContext context, RejectedCandidateModel candidate) {
+class MethodRepo{
+  Future<void> downloadPDF(
+      BuildContext context, String pdfUrl, String filename) async {
+    try {
+      // ignore: unused_local_variable
+      final anchor = html.AnchorElement(href: pdfUrl)
+        ..setAttribute('download', '$filename.pdf')
+        ..setAttribute('target', '_blank')
+        ..click();
+    } catch (e) {
+      print('Error downloading PDF: $e');
+    }
+  }
+  void showCandidateDetails(BuildContext context, CandidateModel candidate) {
     bool _showprofession = false;
     bool _showpersonalinfo = false;
     double width1 = MediaQuery.of(context).size.width;
@@ -197,6 +213,16 @@ void showCandidateDetailsRejected(BuildContext context, RejectedCandidateModel c
                                   .where('appyuid',
                                       isEqualTo: candidate.appyuid)
                                   .get();
+                              if (querySnapshot.docs.isNotEmpty) {
+                                try {
+                                  await FirebaseFirestore.instance
+                                      .collection('rejected')
+                                      .doc(querySnapshot.docs.first.id)
+                                      .delete();
+                                } catch (e) {
+                                  print('Error deleting document: $e');
+                                }
+                              } else {}
 
                               if (querySnapshot.docs.isNotEmpty) {
                                 TopNotification.show(context,
@@ -208,6 +234,18 @@ void showCandidateDetailsRejected(BuildContext context, RejectedCandidateModel c
                                 TopNotification.show(context, "Shortlisted",
                                     CustomColor.green());
                               }
+                              final querySnapshot1 = await FirebaseFirestore
+                                  .instance
+                                  .collection('applyjob')
+                                  .where('jobid', isEqualTo: candidate.jobid)
+                                  .where('userid', isEqualTo: candidate.userid)
+                                  .where('appyuid',
+                                      isEqualTo: candidate.appyuid)
+                                  .get();
+                              await FirebaseFirestore.instance
+                                  .collection('applyjob')
+                                  .doc(candidate.appyuid)
+                                  .update({"candidatestatus": "Shortlisted"});
                             },
                             child: Text("ShortList"),
                           ),
@@ -317,14 +355,22 @@ void showCandidateDetailsRejected(BuildContext context, RejectedCandidateModel c
                                       .collection('shortlist')
                                       .doc(shortlistSnapshot.docs.first.id)
                                       .delete();
-                                
                                 } catch (e) {
                                   print('Error deleting document: $e');
-                                 
                                 }
-                              } else {
-                                
                               }
+                              final querySnapshot3 = await FirebaseFirestore
+                                  .instance
+                                  .collection('applyjob')
+                                  .where('jobid', isEqualTo: candidate.jobid)
+                                  .where('userid', isEqualTo: candidate.userid)
+                                  .where('appyuid',
+                                      isEqualTo: candidate.appyuid)
+                                  .get();
+                              await FirebaseFirestore.instance
+                                  .collection('applyjob')
+                                  .doc(candidate.appyuid)
+                                  .update({"candidatestatus": "Rejected"});
                             },
                             child: Text("Reject"),
                           ),
@@ -346,3 +392,4 @@ void showCandidateDetailsRejected(BuildContext context, RejectedCandidateModel c
       },
     );
   }
+}
